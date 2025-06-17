@@ -203,4 +203,4 @@ for s in filtered:
 
 print("Исходный список:", data)
 print("Обработанный список:", processed)
-print("Количество изменённых символов:", char_count)
+print("Количество изменённых символов:",char_count)
