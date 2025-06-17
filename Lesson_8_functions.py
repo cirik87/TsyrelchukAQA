@@ -72,3 +72,45 @@ def greet(name):
     print(f"Привет, {name}!")
 
 greet("Анна")
+
+def log_decorator(func):
+    def wrapper():
+        print("Выполняется функция...")
+        result = func() # Вызов функции с аргументами
+        return result
+    return wrapper
+
+@log_decorator
+def say_hello():
+    print("Привет!")
+
+say_hello()
+
+def double_decorator(func):
+    def wrapper(*args, **kwargs):
+        res = func(*args, **kwargs)*2 # Вызов функции с аргументами
+        return res
+    return wrapper
+
+@double_decorator
+def get_number():
+    return 5
+
+result = get_number()
+print(result)
+
+# Задача 9 (Раздел: Аргументы с дефолтными значениями)
+# Напиши функцию с именем describe_person, которая принимает два аргумента:
+# name — имя человека (строка),
+# age — возраст, со значением по умолчанию 18.
+# Функция должна выводить на экран строку вида:
+# "Имя: [name], Возраст: [age]"
+# Примеры вывода:
+# describe_person("Анна", 25) → "Имя: Анна, Возраст: 25"
+# describe_person("Борис") → "Имя: Борис, Возраст: 18"
+# После определения функции — вызови её дважды: один раз с обоими аргументами, второй — только с именем.
+
+def describe_person(name,age = 18):
+    print (f"Имя: {name}, Возраст: {age}")
+describe_person("Анна", 25)
+describe_person("Борис")
