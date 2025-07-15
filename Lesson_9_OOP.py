@@ -181,4 +181,4 @@ print(machine1.make_coffee())  # Ваш кофе готов!
 print(CoffeeMachine.water_level)  # 800 (использовали 200 мл)
 
 machine2 = CoffeeMachine("Кафе №2")
-print(machine2.make_coffee())
+print(machine2.make_coffee()
