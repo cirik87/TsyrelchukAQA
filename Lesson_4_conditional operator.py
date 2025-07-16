@@ -47,7 +47,7 @@ else:
 # Если хотя бы одно неверно — выводи "Проход запрещён".
 has_ticket = True
 age = 12
-if (has_ticket and age >= 12):
+if has_ticket and age >= 12:
     print("Проход разрешён")
 else:
     print("Проход запрещён")
