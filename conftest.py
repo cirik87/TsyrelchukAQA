@@ -23,3 +23,6 @@ def get_driver(request):
     request.cls.driver = driver
     yield # Передается управление тесту
     driver.quit()
+
+
+
