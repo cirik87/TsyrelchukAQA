@@ -1,46 +1,35 @@
-
+# import pytest
+# import allure
+# from allure_commons.types import Severity
 #
-# class TestLogin:  # Название тестового класса
 #
-#     def setup_method(self):
-#         self.driver = webdriver.Chrome()
+# @allure.epic("Accounts")
+# @allure.feature("Login")
+# @allure.story("Pages")
+# @pytest.mark.usefixtures("driver")
+# class TestPages:
 #
-#     @pytest.mark.smoke  # Тест маркирован как smoke
+#
+#     @pytest.mark.smoke
+#     @allure.title("Open login page")
+#     @allure.severity(Severity.NORMAL)
+#     @allure.link(url="https://confluence.com", name="Documentation")
 #     def test_open_login_page(self):
-#         self.driver.get("https://demoqa.com/login")
-#         assert self.driver.current_url == "https://demoqa.com/login123", "Ошибка"
+#         self.driver.get("https://yandex.ru")
+#         assert "dzen.ru" in self.driver.current_url, "Ошибка URL страницы входа"
 #
-#     @pytest.mark.regression  # Тест маркирован как regression
+#     @pytest.mark.regression
+#     @allure.title("Open book page")
+#     @allure.severity(Severity.CRITICAL)
+#     @allure.link(url="https://confluence.com/books", name="Documentation")
 #     def test_open_books_page(self):
-#         self.driver.get("https://demoqa.com/books")
-#         assert self.driver.current_url == "https://demoqa.com/books", "Ошибка"
+#         self.driver.get("https://google.com")
+#         assert self.driver.current_url == "https://www.google.com/", "Ошибка URL страницы с книгами"
 #
-#     @pytest.mark.smoke  # Тест относится и к smoke и к sanity
-#     @pytest.mark.sanity
+#     @pytest.mark.profile
+#     @allure.title("Open profile page")
+#     @allure.severity(Severity.BLOCKER)
+#     @allure.link(url="https://confluence.com/profile", name="Documentation")
 #     def test_open_profile_page(self):
 #         self.driver.get("https://demoqa.com/profile")
-#         assert self.driver.current_url == "https://demoqa.com/profile", "Ошибка"
-#
-#     def teardown_method(self):
-#         self.driver.close()
-# import pytest
-#
-#
-#
-# class TestExample:
-#
-#     # def test_example(self, user):
-#     #     print(user.login,user.password)
-#     @pytest.mark.usefixtures("user_data")
-#     def test_example(self):
-#         print(self.login)
-#         print(self.password)
-#
-
-from selenium import webdriver
-import pytest
-
-class TestExample:
-
-    def test_open_page(self):
-        self.driver.get("https://google.com") # И никаких явных вызовов фикстуры
+#         assert self.driver.current_url == "https://demoqa.com/profile", "Ошибка ULR страницы профиля"
