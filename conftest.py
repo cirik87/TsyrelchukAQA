@@ -5,26 +5,26 @@ import shutil
 from selenium.webdriver.chrome.options import Options
 
 
-def clean_allure_results():
-    """Очистка папки allure-results перед запуском тестов"""
-    allure_results_dir = "allure-results"
+# def clean_allure_results():
+#     """Очистка папки allure-results перед запуском тестов"""
+#     allure_results_dir = "allure-results"
+#
+#     if os.path.exists(allure_results_dir):
+#         shutil.rmtree(allure_results_dir)
+#         print(f"🧹 Папка {allure_results_dir} очищена")
+#
+#     os.makedirs(allure_results_dir, exist_ok=True)
+#     print(f"📁 Папка {allure_results_dir} создана")
 
-    if os.path.exists(allure_results_dir):
-        shutil.rmtree(allure_results_dir)
-        print(f"🧹 Папка {allure_results_dir} очищена")
-
-    os.makedirs(allure_results_dir, exist_ok=True)
-    print(f"📁 Папка {allure_results_dir} создана")
-
-@pytest.fixture(scope="session", autouse=True)
-def cleanup_allure_before_tests():
-    """Автоматическая очистка Allure результатов перед всеми тестами"""
-    clean_allure_results()
-    yield
+# @pytest.fixture(scope="session", autouse=True)
+# def cleanup_allure_before_tests():
+    # """Автоматическая очистка Allure результатов перед всеми тестами"""
+    # clean_allure_results()
+    # yield
 
 @pytest.fixture()
 def driver(request):
-    clean_allure_results()
+
 
     options = webdriver.ChromeOptions()
     options.add_argument("--incognito")

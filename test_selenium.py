@@ -34,6 +34,11 @@ class TestPages:
     def test_open_login_page(self):
         with allure.step("Открытие страницы SauceDemo"):
             self.driver.get("https://www.saucedemo.com")
+            allure.attach(
+                body=self.driver.get_screenshot_as_png(),
+                name="Login page",
+                attachment_type=allure.attachment_type.PNG
+            )
             assert "https://www.saucedemo.com" in self.driver.current_url, "Ошибка URL страницы входа"
 
         # Вводим логин и проверяем, что введен логин standard_user
@@ -56,7 +61,7 @@ class TestPages:
         with allure.step("Проверяем, что находимся на необходимой странице"):
             title_field_value = self.driver.find_element(By.XPATH, "//span[@data-test='title']").text
             assert title_field_value == "Products"
-            time.sleep(3)
+
 
 
         # Добавить в корзину и проверяем, что кнопка добавления в корзину изменилась и товар добавлен в корзину
